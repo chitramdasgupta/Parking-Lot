@@ -5,7 +5,7 @@ public class ExitPoint {
         return true;
     }
 
-    public void processPayment(Vehicle vehicle, Payment payment) {
-        PaymentProcessor.processPayment(vehicle, payment);
+    public void processPayment(Vehicle vehicle, int hours) {
+        PaymentService.processPayment(vehicle, new HourlyPaymentStrategy(), hours);
     }
 }

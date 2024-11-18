@@ -1,8 +1,8 @@
 package com.chitramdasgupta;
 
 public class ElectricSpot extends Spot {
-    private final SpotType spotType = SpotType.COMPACT;
-    private ElectricPanel electricPanel;
+    private final SpotType spotType = SpotType.ELECTRIC;
+    private final ElectricPanel electricPanel = new ElectricPanel();
 
     @Override
     protected boolean isSuitableForVehicle(Vehicle vehicle) {

@@ -21,4 +21,8 @@ public class Ticket {
     public String toString() {
         return "Ticket issued to vehicle: " + vehicle + " at " + issuedAt;
     }
+
+    public int getElapsedHours() {
+        return 0;
+    }
 }

@@ -44,6 +44,29 @@ public class ParkingLot implements Subject {
         notifyObservers();
     }
 
+    public void processEntry(Vehicle vehicle) {
+        for (EntryPoint entryPoint : entryPoints) {
+            if (entryPoint.isAvailable()) {
+                Ticket ticket = entryPoint.issueTicket(vehicle);
+                System.out.println("Ticket issued: " + ticket);
+                return;
+            }
+        }
+
+        System.out.println("No suitable entry points");
+    }
+
+    public void processExit(Vehicle vehicle, Payment payment) {
+        for (ExitPoint exitPoint : exitPoints) {
+            if (exitPoint.isAvailable()) {
+                exitPoint.processPayment(vehicle, vehicle.getTicket().getElapsedHours());
+                return;
+            }
+        }
+
+        System.out.println("No suitable exit points");
+    }
+
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
