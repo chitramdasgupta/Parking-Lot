@@ -1,4 +1,7 @@
 package com.chitramdasgupta;
 
-abstract class Spot {
+public abstract class Spot {
+    public boolean isFree() {
+        return false;
+    }
 }
