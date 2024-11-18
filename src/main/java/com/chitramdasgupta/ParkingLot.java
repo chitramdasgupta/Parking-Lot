@@ -25,4 +25,27 @@ public class ParkingLot {
     public int getTotalAvailableSpots() {
         return floorManager.getTotalAvailableSpots();
     }
+
+    public void processEntry(Vehicle vehicle) {
+        for (EntryPoint entryPoint : entryPoints) {
+            if (entryPoint.isAvailable()) {
+                Ticket ticket = entryPoint.issueTicket(vehicle);
+                System.out.println("Ticket issued: " + ticket);
+                return;
+            }
+        }
+
+        System.out.println("No entry points available");
+    }
+
+    public void processExit(Vehicle vehicle, Payment payment) {
+        for (ExitPoint exitPoint : exitPoints) {
+            if (exitPoint.isAvailable()) {
+                exitPoint.processPayment(vehicle, payment);
+                return;
+            }
+        }
+
+        System.out.println("No exit points available");
+    }
 }

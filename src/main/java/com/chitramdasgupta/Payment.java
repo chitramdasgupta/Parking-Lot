@@ -1,4 +1,5 @@
 package com.chitramdasgupta;
 
-public class Payment {
+public abstract class Payment {
+    public abstract void process();
 }
