@@ -1,6 +1,6 @@
-![Class diagram](classDiagram.svg)
+![Class diagram](classDiagram.png)
 
-Requirements:
+## Requirements:
 
 1. The parking lot should have multiple floors where customers can park their cars.
 
