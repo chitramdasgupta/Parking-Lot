@@ -23,6 +23,25 @@ public class Floor {
         return (int) spots.stream().filter(Spot::isFree).count();
     }
 
+    public boolean parkVehicle(Vehicle vehicle) {
+        for (Spot spot : spots) {
+            if (spot.parkVehicle(vehicle)) {
+                return true;
+            }
+        }
+
+        System.out.println("No suitable spots available for vehicle");
+        return false;
+    }
+
+    private boolean isSpotSuitableForVehicle(Spot spot, Vehicle vehicle) {
+        return true;
+    }
+
+    public void vacateSpot(Spot spot) {
+        spot.vacate();
+    }
+
     public void displayInfo() {
         displayBoardStrategy.display();
     }

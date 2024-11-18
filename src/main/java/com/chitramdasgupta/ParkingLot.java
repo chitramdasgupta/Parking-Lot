@@ -17,9 +17,18 @@ public class ParkingLot {
         this.floorManager = new FloorManager();
     }
 
-    public void addFloor(FloorType floorType) {
-        Floor floor = FloorFactory.createFloor(floorType);
+    public void addFloor(FloorType floorType, List<SpotType> spotTypes) {
+        Floor floor = FloorFactory.createFloor(floorType, spotTypes);
         floorManager.addFloor(floor);
+    }
+
+    public void parkVehicle(Vehicle vehicle) {
+        for (Floor floor : floorManager.getFloors()) {
+            if (floor.parkVehicle(vehicle)) {
+                return;
+            }
+        }
+        System.out.println("No suitable floors available for parking");
     }
 
     public int getTotalAvailableSpots() {

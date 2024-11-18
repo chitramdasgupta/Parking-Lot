@@ -23,4 +23,8 @@ public class FloorManager {
     public void displayAllFloorInfo() {
         floors.forEach(Floor::displayInfo);
     }
+
+    public List<Floor> getFloors() {
+        return floors;
+    }
 }
