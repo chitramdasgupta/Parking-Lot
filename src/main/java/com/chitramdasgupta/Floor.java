@@ -1,6 +1,8 @@
 package com.chitramdasgupta;
 
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 public class Floor {
     private final FloorType type;
@@ -21,6 +23,16 @@ public class Floor {
 
     public int getAvailableSpots() {
         return (int) spots.stream().filter(Spot::isFree).count();
+    }
+
+    public Map<SpotType, Integer> getAvailableSpotsByType() {
+        Map<SpotType, Integer> counts = new EnumMap<>(SpotType.class);
+        for (Spot spot : spots) {
+            SpotType spotType = spot.getSpotType();
+            counts.put(spotType, counts.getOrDefault(spotType, 0) + (spot.isFree() ? 1 : 0));
+        }
+
+        return counts;
     }
 
     public boolean parkVehicle(Vehicle vehicle) {

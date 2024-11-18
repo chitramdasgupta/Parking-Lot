@@ -24,6 +24,8 @@ public abstract class Spot {
     // Hook method to be implemented by subclasses
     protected abstract boolean isSuitableForVehicle(Vehicle vehicle);
 
+    public abstract SpotType getSpotType();
+
     protected void occupy() {
         if (!isFree) throw new IllegalStateException("Spot is already occupied");
         isFree = false;
